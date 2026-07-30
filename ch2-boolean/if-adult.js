@@ -1,4 +1,4 @@
-const age = 17;
+const age = 24;
 const ADULT_LOWER_LIMIT = 18;
 
 if (age > ADULT_LOWER_LIMIT) {

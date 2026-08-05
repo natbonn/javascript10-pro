@@ -6,7 +6,7 @@ if (cities.indexOf('Athens') === -1) {
     console.log('Found');
 }
 
-// Modern
+// Modern way
 if (cities.includes('Athens')) {
     console.log('Found');
 } else {

@@ -42,6 +42,28 @@ function palindrome(str) {
 
 function palindrome2(str) {
     const reversed = str.trim().toUpperCase().split(/\s+/).reverse().join('');
-    return reversed === str.trim().toUpperCase().split().koin('');
+    return reversed === str.trim().toUpperCase().split(/\s+/).join('');
 }
+
+// Άσκηση 3
+// Μία συνάρτηση μετράει πόσα φωνήεντα
+// [a, e, i, o, u] περιέχει ένα string, 
+// ανεξαρτήτως κεφαλαίων - πεζών
+
+function countVowels(str) {
+    const vowels = [...'aeiou'];
+    let count = 0;
+
+    for (const char of str.toLowerCase()) {
+        if (vowels.includes(char)) {
+            count++;
+        }
+    }
+
+    return count;
+}
+
+console.log(countVowels('Javascript'));
+
+
  

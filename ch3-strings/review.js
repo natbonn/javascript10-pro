@@ -65,5 +65,72 @@ function countVowels(str) {
 
 console.log(countVowels('Javascript'));
 
+// Άσκηση 4
+// Μία συνάρτηση που παίρνει ως είσοδο μια πρόταση
+// και αν επιστρέφει την ίδια πρόταση, αλλά με το πρώτο
+// γράμμα κάθε λέξης κεφαλαίο και τα υπόλοιπα πεζά
+// και ένα κενό μεταξύ των λέξεων
+// 'codING   faCtory'   -> 'Coding Factory'
+
+function capitalize(str) {
+    if (!str.trim()) return '';
+
+    let returnedSentence = '';
+    const tokens = str.trim().split(/\s+/);
+
+    for (const token of tokens) {
+        const newToken1 = token[0].toUpperCase();
+        const newToken2 = token.slice(1).toLowerCase();
+        returnedSentence += newToken1 + newToken2 + ' ';
+    }
+    return returnedSentence.trim();
+}
+
+console.log(capitalize('codING    faCtory'));
+
+// Άσκηση 5
+// Μία συνάρτηση που παίρνει ένα κείμενο
+// και μία λέξη και επιστρέφει πόσες φορές εμφανίζεται
+// αυτή η λέξη μέσα στο κείμενο (ανεξαρτητως πεζων/κεφαλαίων)
+
+function wordCount (text, str) {
+    if (!text.trim() || !str.trim()) return 0;
+
+    const words = text.trim().toLowerCase().split(/\s+/);
+    const searchTerm = str.trim('.').toLowerCase();
+    let times = 0;
+
+    for (const word of words) {
+        if (word === searchTerm) times++;
+    }
+    return times;
+}
+
+// Με δυναμικό regex
+function wordCount2 (text, str) {
+    const pattern = new RegExp('\\b + str + \\b', 'gi');
+    const matches = text.match(pattern);
+
+    return matches === null ? 0 : matches.length;
+}
+
+// Άσκηση 6
+// Μία συνάρτηση η οποία να παίρνει ως είσοδο τον αριθμό κάρτας
+// πχ '1234 5678 2345 6543' και επιστρέφει masked όλα τα ψηφία
+// εκτός από τα 4 τελευταία, πχ *************6543
+
+function maskCardNumber (cardNumber) {
+    if (!cardNumber.trim()) return;
+
+    const digits = cardNumber.trim().split(' ').join('');
+    const lastFourDigits = digits.slice(-4);
+    const masked = '*'.repeat(digits.length - 4);
+
+    return masked + lastFourDigits;
+}
+console.log(maskCardNumber(`1234 5678 2345 6543`));
+
+
+
 
  

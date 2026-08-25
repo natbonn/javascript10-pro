@@ -81,6 +81,7 @@ console.log(removeAllOccurances([1, 2, 3, 2, 4, 2], 2));
 // Άσκηση 5
 // Μία συνάρτηση που βρίσκει το δεύτερο μεγαλύτερο αριθμό
 // ενός πίνακα. [7, 7, 4] αγνοείται το διπλότυπο (εδώ ειναι το 4)
+// σε ένα μόνο πέρασμα (O(n))
 
 function secondMax(arr) {
     if (!Array.isArray(arr) || arr.length < 2) {
@@ -98,6 +99,26 @@ function secondMax(arr) {
             secondMax = arr[i];
         }
     }
-
     return secondMax;
+}
+
+// λιγότερο αποδοτικός τρόπος
+function secondMax2(arr) {
+    const uniqueNumbers = [...new Set(arr)]; // τα Set δεν δέχονται διπλότυπα
+    uniqueNumbers.sort((a, b) => b - a);     // descending μικρό προς μεγάλο
+    return uniqueNumbers[1];                 // στην 1η θεση το max, θέλουμε τη δεύτερη θέση που είναι το [1]
+}
+
+// Άσκηση 6
+// Μία συνάρτηση που να παίρνει ως είσοδο έναν πίνακα
+// και ένα θετικό offset και να κάνει αριστερό και κυκλικό 
+// shift κατά offset θέσεις. [1, 2, 3] -> [2, 3, 1];
+
+function shiftLeft(arr, offset) {
+    let shiftedArray = [];
+    const normalized0ffset = offset % arr.length;
+
+    for (let i = 0; i < arr.length; i++) {
+        shiftedArray[(i - normalized0ffset + arr.length) % arr.length] = arr[i];
+    }
 }

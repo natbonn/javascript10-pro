@@ -4,10 +4,12 @@ const user = {
     getFirstname: function() {
         return this.firstname
     },
-    getFullname() {                      // new way of inside method
+    getFullname() {                  // new way of object method
         return `${this.firstname}, ${this.lastname}`
     }
 }
+
+user.age = 50
 
 console.log(user.getFirstname())
 console.log(user.getFullname())

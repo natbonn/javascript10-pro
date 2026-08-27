@@ -79,3 +79,65 @@ function printEntries2(obj) {
 }
 
 
+// Άσκηση 4
+// Έστω το παρακάτω bankAccount obj.
+// προσθέστε δύο μεθόδους: deposit & withdraw
+
+const bankAccount = {
+    owner: "Alice",
+    balance: 500,
+
+    deposit(amount) {
+        if (amount < 0) return 
+        this.balance += amount;
+    },
+    withdraw(amount) {
+        if (amount > this.balance)  return   // if truthy stop
+        this.balance -= amount;              // else continue
+    }
+}
+
+
+// Άσκηση 5
+// Μία συνάρτηση που να επιστρέφει το product 
+// με το max price
+const products = [
+    { name: 'mouse', price: 50 },
+    { name: 'keyboard', price: 80 },
+    { name: 'cpu', price: 800 }
+]
+
+// Δική μου λύση
+function findMostExpensive(products) {
+   const prices = products.map(p => p.price);
+   const maxPrice = Math.max(...prices);
+   return products.find(p => p.price === maxPrice);
+}
+
+console.log(findMostExpensive(products));
+
+
+// Πιο επαγγελματική με .reduce και accumulator
+function findMostExpensive2(products) {
+    return products.reduce((acc, product) => {
+        return product.price > acc.price ? product : acc
+    });
+};
+
+console.log(findMostExpensive2(products));
+
+// Του καθηγητή λύση
+function findMostExpensive3(products) {
+    if (!Array.isArray(products)) return;
+    if (products.length === 0) return;
+
+    let mostExpensive = products[0];
+
+    for (const product of products) {
+        if (product.price > mostExpensive) {
+            mostExpensive = product
+        };
+    };
+
+    return mostExpensive;
+};

@@ -57,6 +57,8 @@ function calculateTotalPrice(discount, ...prices) {
 
 console.log(calculateTotalPrice(5, 10, 8, 30.7))
 
+
+
 // Sanity checks στα input params των συναρτήσεων
 // Έχουν νόημα μόνο αν εμείς δεν έχουμε πρόσβαση 
 // στα input data - Public APIs, κλπ external data
@@ -79,3 +81,27 @@ function getFirstHobby(user) {
 function getFirstHobby2(user) {
     return user?.hobbies?.[0] ?? 'no hobbies'
 }
+
+// for arrays
+function sumGrades(grades) {
+    if (!Array.isArray(grades) || grades.length === 0) {
+        return
+    }
+    // for .....
+}
+
+// Arrow Function -- Implicit & Explicit return
+// First way - Implicit
+const square = (n) => n * n      // υπονοείται curly braces & return - με μία παράμετρο δεν θέλει το (param)
+console.log(square(5))
+
+// Explicit return me {} & return
+// Όχι απλό expression - όχι μία γραμμή 
+const cube = (n) => {
+    const result = n * n * n
+    return result
+}
+
+// Implicit return of Object -- Wrap μέσα σε ({}) -- Αν είναι explicit only {}
+const createUser = (username, role) => ({ username: username, role: role})
+

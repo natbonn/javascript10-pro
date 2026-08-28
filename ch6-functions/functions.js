@@ -105,3 +105,18 @@ const cube = (n) => {
 // Implicit return of Object -- Wrap μέσα σε ({}) -- Αν είναι explicit only {}
 const createUser = (username, role) => ({ username: username, role: role})
 
+
+
+// Hoisting
+console.log(hello('Alice'))     // καλούμε πριν ορίσουμε λόγω hoist
+
+// hoisting function
+function hello(name) {
+    return `Hello ${name}`
+}
+
+// Expression ή arrow function NOT hoisting
+console.log(hello2('Bob'))               // error - είναι και προφύλαξη 
+const hello2= (name) => `Hello ${name}`  // προτιμότεροι οι 2 αυτοί τρόποι
+
+

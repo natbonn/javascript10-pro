@@ -31,27 +31,51 @@ createButton('Hello', '')         // θα είναι blue όχι clear
 function createButton2(text, color = 'blue') {
     console.log(text, color)
 }  
- createButton2('Hello')            // Hello blue
- createButton2('Hello', 'red')     // Hello red
- createButton2('Hello', '')        // Hello
+
+createButton2('Hello')            // Hello blue
+createButton2('Hello', 'red')     // Hello red
+createButton2('Hello', '')        // Hello
 
 
- // Rest params
- // let arr = [1, 2, 3, 4]
- //  max(...arr)
- // max(1, 2, 3, 4, 5)
- function max(...numbers) {            // rest
-    // for (const num of numbers) {
-        // find max as usual
-    // }
+// Rest params
+// let arr = [1, 2, 3, 4]
+//  max(...arr)
+// max(1, 2, 3, 4, 5)
+function max(...numbers) {            // rest
+// for (const num of numbers) {
+//         // find max as usual
+// }
     return Math.max(...numbers)        // spread
- }
+}
 
- console.log(max(1, 2, 8, 3, 23, 17))  // 23
+console.log(max(1, 2, 8, 3, 23, 17))  // 23
 
- function calculateTotalPrice(discount, ...prices) {
-    const totalPrice = prices.reduce((sum , price) => sum + price, 0)
-    return totalPrice - discount
- }
+function calculateTotalPrice(discount, ...prices) {
+   const totalPrice = prices.reduce((sum , price) => sum + price, 0)
+   return totalPrice - discount
+}
 
- console.log(calculateTotalPrice(5, 10, 8, 30.7))
+console.log(calculateTotalPrice(5, 10, 8, 30.7))
+
+// Sanity checks στα input params των συναρτήσεων
+// Έχουν νόημα μόνο αν εμείς δεν έχουμε πρόσβαση 
+// στα input data - Public APIs, κλπ external data
+const user = {
+    id: 1,
+    firstname: 'Alice',
+    lastname: 'W.',
+    hobbies: [ 'reading' ]
+}
+
+// Legacy
+function getFirstHobby(user) {
+    if (user && user.hobbies && Array.isArray(user.hobbies) && user.hobbies.length > 0 ) {
+        return
+    }
+    return user.hobbies[0]
+}
+
+// Modern way
+function getFirstHobby2(user) {
+    return user?.hobbies?.[0] ?? 'no hobbies'
+}

@@ -141,3 +141,35 @@ function findMostExpensive3(products) {
 
     return mostExpensive;
 };
+
+
+
+
+// Άσκηση 6
+// Μία συνάρτηση που να επιστρέφει object με γκρουπάρισμα 
+// ανά city των users
+
+const users = [
+    { firstname: 'Alice', city: 'Athens' },
+    { firstname: 'Bob', city: 'Patra' },
+    { firstname: 'Costas', city: 'Athens' },
+    { firstname: 'Dimitris', city: 'Patra' },
+    { firstname: 'Elon', city: 'Athens' },
+    { firstname: 'Frank', city: 'Patra' },
+] 
+
+// { Athens: ['Alice', 'Costas', 'Elon'], Patra: ['Bob', 'Dimitris', 'Frank'] }
+
+function groupByCity(users) {
+    const groups = {}           // obj ως map για grouping
+
+    for (const user of users) {
+        if (!(user.city in groups)) {       // αν δεν υπάρχει
+            groups[user.city] = []          // ειναι obj με 1 prop το city
+        }                                   // αν υπάρχει τότε:
+        groups[user.city].push(user.firstname)  // .push() για λίστα ονομάτων
+    }
+
+    return groups
+}
+ console.log(groupByCity(users));

@@ -120,3 +120,12 @@ console.log(hello2('Bob'))               // error - είναι και προφύ
 const hello2= (name) => `Hello ${name}`  // προτιμότεροι οι 2 αυτοί τρόποι
 
 
+// Callbacks συναρτήσεων
+function processUser(username, callback) {
+    console.log(`Processing data os user ${username}`)   // θέλει `` όχι ''
+    callback(username)
+}
+// συνέχεια για εμφάνιση της callback
+processUser('online-user', (user) => {
+    console.log(`Data received for user ${user}`)
+})

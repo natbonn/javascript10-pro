@@ -129,3 +129,18 @@ function processUser(username, callback) {
 processUser('online-user', (user) => {
     console.log(`Data received for user ${user}`)
 })
+
+// Closures
+function createCounter() {       // scope
+    let count = 0                // private
+
+    return function() {
+        count++
+        return count
+    }
+}
+
+const myCounter = createCounter()  // συνεχίζει να υπάρχει - scope
+console.log(myCounter())
+console.log(myCounter())
+console.log(myCounter())

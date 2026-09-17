@@ -5,19 +5,19 @@ function sayHello(name) {
 
 console.log(sayHello('Alice'))
 
-// 2. Function Expression
+// 2. Function Expression -- ΔΕΝ δουλεύει το hoisting δέχεται calls μετά
 const add = function(a, b) {
     return a + b
 }
 
 console.log(add(3, 8))
 
-// 3. Arrow Functions
+// 3. Arrow Functions  --  Υπονοείται το return - απλοποιημένη μορφή του πάνω τρόπου
 const multiply = (a, b) => a * b;
 
 console.log(multiply(4, 6))
 
-// Optional Params - old way
+// Optional Params - old way - default τιμές
 function createButton(text, color) {
     color = color || 'blue'
     console.log(text, color)

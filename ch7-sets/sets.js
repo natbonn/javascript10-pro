@@ -18,15 +18,22 @@ function createSet(...elements) {
 }
 
 // Παίρνουμε πίνακα με διπλότυπα και μετατρέπουμε σε άλλο χωρίς διπλότυπα
-const cities = [{id: 1, city: 'Athens'}, {id: 2, city: 'Athens'}]
+const cities = [
+    {id: 1, city: 'Athens'}, 
+    {id: 2, city: 'Athens'}
+]
 
 function getUniqueCities(arr) {
     return [...new Set(arr.map(cityObj => cityObj.city))]    
 }
 
-// Το ίδιο πιο απλό
+// Το ίδιο με πάνω πιο απλό
 function getUniqueCities2(arr) {
     return [...new Set(cities)]    
 }
+
+// Πράξεις σε Set (σε σύνολα δηλαδή)
+
+
 
 

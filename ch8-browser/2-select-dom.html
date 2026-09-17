@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Get a reference to a DOM node</title>
+</head>
+<body>
+    <h1>Coding</h1>
+    <p id="auebText">Hello Coding!</p>
+
+    <script>
+        // const pDOM = document.getElementById('auebText')
+        const pDOM = document.querySelector('#auebText');
+
+        // pDOM.textContent += " Hello World!";      // ασφαλες default
+        pDOM.innerHTML += "<br>Hello World!"       // δεν είναι ασφαλές αν έρθει από input
+    </script>
+</body>
+</html>

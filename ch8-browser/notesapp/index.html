@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notes App</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script type="module" src="./js/controller.js"></script>
+</head>
+<body>
+    <div class="w-[300px] h-[500px] my-5 mx-auto border-2 border-black rounded-[5px]">
+        <header>
+            <div class="flex justify-center items-center">
+                <span id="dateTxt" class="flex w-full h-[50px]  items-center justify-center border-b border-black text-base text-red-700"></span>
+            </div>
+        </header>
+
+        <main>
+            <div id="notesWrapper" class="h-[400px] border-b border-black overflow-auto">
+
+
+            </div>
+        </main>
+
+        <footer>
+            <div class="flex justify-around items-center h-[47px]">
+                <input type="text" 
+                id="inputNote" 
+                class="w-[200px] h-[40px] pl-[5px] border border-black" 
+                placeholder="Insert note"
+                aria-label="New note">
+                <button 
+                type="button" 
+                id="addNoteBtn"
+                class="w-[40px] h-[40px] border border-black rounded-full" 
+                aria-label="Add note">
+                +
+                </button>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>

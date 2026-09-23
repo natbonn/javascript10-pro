@@ -1,5 +1,5 @@
 let notes = [];   // note = {key: id, note: noteTxt, softDeleted: false} πολλά objects
-let id = 1;       // και τα 2 = state
+let id = 1;       
 
 export function getNotes() {
     return notes;

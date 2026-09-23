@@ -23,12 +23,12 @@ const monthsGR = [
     "Δεκεμβρίου"
 ];
 
-const dateDOM = document.getElementById('dateTxt');
-const notesContainer = document.getElementById('notesWrapper');
+const dateDOM = document.getElementById("dateTxt");
+const notesContainer = document.getElementById("notesWrapper");
 
 export function renderGRDate() {
     const now = new Date();
-    const pad = (n) => String(n).padStart(2, "0")
+    const pad = (n) => String(n).padStart(2, "0");
 
     const dateStr = `${daysGR[now.getDay()]}, ${now.getDate()}, ${monthsGR[now.getMonth()]}, ${now.getFullYear()}`;
 
@@ -37,7 +37,7 @@ export function renderGRDate() {
     dateDOM.innerHTML = `${dateStr}<br>${timeStr}`;
 }
 
-function createNoteElement(noteObj, {onStrikeThrough, onDelete}) {
+function createNoteElement(noteObj, { onStrikeThrough, onDelete }) {
     const div = document.createElement("div")
     div.id = 'noteTemplate' + noteObj.key;
     div.className = 
@@ -47,9 +47,9 @@ function createNoteElement(noteObj, {onStrikeThrough, onDelete}) {
     checkBox.id = 'checkBox' + noteObj.key;
     checkBox.type = "checkbox";
     checkBox.checked = noteObj.softDeleted;
-    checkBox.addEventListener('click', () => onStrikeThrough(noteObj.key));
+    checkBox.addEventListener("click", () => onStrikeThrough(noteObj.key));
 
-    const label = document.createElement('label');
+    const label = document.createElement("label");
     label.id = 'label' + noteObj.key;
     label.htmlFor = checkBox.id;
     label.textContent = noteObj.note;

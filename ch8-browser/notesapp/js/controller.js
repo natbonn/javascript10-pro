@@ -1,5 +1,5 @@
-import { insertNote, strikeThrough } from "./model";
-import { renderGRDate, renderNotes } from "./view";
+import { deleteNote, getNotes, insertNote, strikeThrough } from "./model.js";
+import { renderGRDate, renderNotes } from "./view.js";
 
 const inputNote = document.getElementById('inputNote');
 const addButton = document.getElementById('addNoteBtn');
@@ -40,6 +40,6 @@ function onDeleteHandler(key) {
     renderNotes(getNotes(), handlers);
 }
 
-// renderGRDate();
-setInterval(1000, renderGRDate);
+renderGRDate();
+setInterval(renderGRDate, 1000);
 renderNotes(getNotes(), handlers);

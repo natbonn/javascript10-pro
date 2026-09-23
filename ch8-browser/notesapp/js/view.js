@@ -23,7 +23,8 @@ const monthsGR = [
     "Δεκεμβρίου"
 ];
 
-const dateDOM = document.getElementById('dateTxt')
+const dateDOM = document.getElementById('dateTxt');
+const notesContainer = document.getElementById('notesWrapper');
 
 export function renderGRDate() {
     const now = new Date();
@@ -49,17 +50,29 @@ function createNoteElement(noteObj, {onStrikeThrough, onDelete}) {
     checkBox.addEventListener('click', () => onStrikeThrough(noteObj.key));
 
     const label = document.createElement('label');
+    label.id = 'label' + noteObj.key;
     label.htmlFor = checkBox.id;
     label.textContent = noteObj.note;
-    label.className = `w-[200px] max-height-[100px] overflow-hidden break-words white-space-normal text-base ${noteObj.softDeleted ? "line-through text-gray-500" : ""}`;
+    label.className = `w-[200px] max-h-[100px] overflow-hidden break-words white-space-normal text-base ${noteObj.softDeleted ? "line-through text-gray-500" : ""}`;
 
     const deleteBtn = document.createElement("button");
     deleteBtn.id = "deleteBtn" + noteObj.key;
     deleteBtn.textContent = "X";
     deleteBtn.className = " w-[35px] h-[35px] rounded-full border border-black";
+    deleteBtn.setAttribute('aria-label', 'Delete note: ' + noteObj.note);
     deleteBtn.addEventListener('click', () => onDelete(noteObj.key));
 
     div.appendChild(checkBox);
     div.appendChild(label);
     div.appendChild(deleteBtn);
+
+    return div;
+}
+
+export function renderNotes(notes, handlers) {
+    notesContainer.textContent = "";
+    notes.forEach((noteObj) => 
+        notesContainer.appendChild(createNoteElement(noteObj, handlers)),
+    );
+
 }

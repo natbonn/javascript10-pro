@@ -13,7 +13,11 @@ export function insertNote(noteTxt) {
 export function strikeThrough(key) {
     notes = notes.map((noteObj) => 
         noteObj.key === key 
-        ? { ...noteObj, softDeleted: !noteObj.softDeleted }
-        : noteObj,
+            ? { ...noteObj, softDeleted: !noteObj.softDeleted }
+            : noteObj,
     );
+}
+
+export function deleteNote(key) {
+    notes = notes.filter((noteObj) => noteObj.key !== key)
 }

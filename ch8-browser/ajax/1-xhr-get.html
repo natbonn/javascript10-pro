@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>XMLHttpRequest - XHR Get</h1>
+    <button type="button" onclick="fetchOneObj()">
+        Fetch One Object
+    </button>
+    <p id="responseText"></p>
+
+
+    <script>
+        function fetchOneObj() {
+            const xhr = new XMLHttpRequest();
+
+            xhr.open('GET', 'https://jsonplaceholder.typicode.com/posts/1', true);
+
+            xhr.onload = function() {
+                if (xhr.status >= 200 && xhr.status < 300) {
+                    handleResponse(JSON.parse(xhr.responseText));
+                } else {
+                    showError(`HTTP ${xhr.status}: ${xhr.statusText}`)
+                }
+            };
+
+            // Network errors, CORS
+            xhr.onerror = function () {
+                showError('Network error');
+            };
+
+            xhr.send();                         // δεν έχει return γιατί είναι async
+        }
+
+        function handleResponse(response) {
+            document.getElementById('responseText').innerHTML = 
+            `Title: ${response.title} <br> Body: ${response.body}`;
+        }
+
+
+        function showError(statusText) {
+            document.getElementById('responseText').textContent = statusText;
+        }
+    </script>
+</body>
+</html>

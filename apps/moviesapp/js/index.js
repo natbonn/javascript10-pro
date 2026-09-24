@@ -58,7 +58,7 @@ function render(data) {
 
     // όπως τα δίνει το API ta data.(...) etc
     $('#image').attr( {src: poster, alt: data.Title });
-    $('#imdbId').attr('href', `https://www.imbd.com/title/${data.imdbID}`);
+    $('#imdbId').attr('href', `https://www.imdb.com/title/${data.imdbID}`);
     $('#title').text(data.Title);
     $('#year').text(`Έτος παραγωγής: ${data.Year}`);
     $('#runtime').text(`Διάρκεια: ${data.Runtime}`);

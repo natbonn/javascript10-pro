@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Axios Post</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios@1.20.0/dist/axios.min.js"></script>
+</head>
+<body>
+
+    <h1>Axios Post Request</h1>
+    <button type="button" onclick="createPost()">
+        Send One Object with POST
+    </button>
+    <p id="responseText"></p>
+    
+
+    <script>
+        const payload = {
+            title: "Coding Factory",
+            body: "JavaScript Course",
+            userId: 1,
+        };
+
+        const createPost = () => {
+            axios
+            .post('https://jsonplaceholder.typicode.com/posts', payload)
+            .then((response) => {
+                document.getElementById('responseText').textContent = 
+                    `Post created with title: ${response.data.title}`;
+            })
+            .catch((error) => {
+                console.error("Error", error);
+                document.getElementById('responseText').textContent = 
+                    `${error.message}`;
+            });
+        };
+    </script>
+</body>
+</html>
